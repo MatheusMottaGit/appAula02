@@ -1,4 +1,6 @@
-﻿string nome = "João";
-byte idade = 30;
+﻿string nome;
+byte idade;
+
+Console.Write("digite seu nome: ");
 
 Console.WriteLine();
