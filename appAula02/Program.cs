@@ -45,16 +45,65 @@
 //}
 
 
+using System.Drawing;
 using appAula02.uteis;
 
+// 1
 int result;
 
-SomaDoisNumeros somaDoisNumeros = new SomaDoisNumeros();
-result = somaDoisNumeros.somar(10, 20);
-Console.WriteLine(result);
-
+// 2
 double resultMilimetros;
 
-MetrosMilimetros metrosMilimetros = new MetrosMilimetros();
-resultMilimetros = metrosMilimetros.converter(2.5);
-Console.WriteLine(resultMilimetros);
+// 3
+double resultAumento;
+double valorA = 100;
+double percentualAumento = 0.1;
+
+// 4
+double resultDesconto;
+double valorD = 100;
+double percentual = 0.1;
+
+Console.WriteLine("Escolha uma opção: soma, conversao, aumento, desconto");
+string option = Console.ReadLine();
+
+do
+{
+    switch (option)
+    {
+        case "soma":
+            SomaDoisNumeros somaDoisNumeros = new SomaDoisNumeros();
+            result = somaDoisNumeros.somar(10, 20);
+            Console.WriteLine(result);
+            break;
+
+        case "conversao":
+            MetrosMilimetros metrosMilimetros = new MetrosMilimetros();
+            resultMilimetros = metrosMilimetros.converter(2.5);
+            Console.WriteLine(resultMilimetros);
+            break;
+
+        case "aumento":
+            CalculaAumento calculaAumento = new CalculaAumento();
+            resultAumento = calculaAumento.aumentar(valorA, percentualAumento);
+
+            Console.WriteLine($"Valor escolhido: {valorA}");
+            Console.WriteLine($"Percentual de aumento: {percentualAumento * 100}%");
+            Console.WriteLine($"Valor com aumento: {resultAumento}");
+            break;
+
+        case "desconto":
+            AplicaDesconto aplicaDesconto = new AplicaDesconto();
+            resultDesconto = aplicaDesconto.descontar(valorD, percentual);
+
+            Console.WriteLine($"Valor escolhido: {valorD}");
+            Console.WriteLine($"Percentual de desconto: {percentual * 100}%");
+            Console.WriteLine($"Valor com desconto: {resultDesconto}");
+            break;
+
+        default:
+            Console.WriteLine("Opção inválida");
+            break;
+    }
+}
+while (option != "");
